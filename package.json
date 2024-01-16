@@ -1,0 +1,17 @@
+{
+  "name": "restaurant-directory-backend",
+  "version": "1.0.0",
+  "description": "restaurant directory REST API",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "run": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "6.3"
+  }
+}
