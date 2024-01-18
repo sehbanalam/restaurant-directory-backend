@@ -25,16 +25,19 @@ async function run() {
     const restaurants = db.collection("restaurants");
   } finally {
     // Ensures that the client will close when you finish/error
-    //await client.close();
   }
 }
 run().catch(console.dir);
 
-app.get("/", (req, res) => {
-  let all = db
-    .collection("restaurants")
-    .findOne({ name: "Gulbahar Chicken Fry" });
-  res.send(all);
+app.get("/", async (req, res) => {
+  let restaurants = [];
+  let cursor = await db.collection("restaurants").find();
+  for await (const doc of cursor) {
+    restaurants.push(doc);
+    console.log(doc);
+  }
+  await client.close();
+  res.send(restaurants);
 });
 
 app.listen(port, () => {
