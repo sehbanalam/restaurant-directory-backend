@@ -1,26 +1,22 @@
 import express from "express";
-import { MongoClient } from "mongodb";
 import "dotenv/config";
+import { MongoClient, ServerApiVersion } from "mongodb";
+import db from "./dbConnect.js";
 
 const app = express();
 const port = 3000;
 
-MongoClient.connect(process.env.MONGODB_URI)
-  .then(async (client) => {
-    app.locals.db = await client.db("restaurant_directory");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
 app.get("/", async (req, res) => {
-  // //const db = await req.app.locals.db;
-  // //let restaurants = [];
-  // //let cursor = await db.collection("restaurants").find();
-  // for await (const doc of cursor) {
-  //   restaurants.push(doc);
-  // }
   res.json({ hello: "world" });
+});
+
+app.get("/getRestaurants", async (req, res) => {
+  let restaurants = [];
+  let cursor = await db.collection("restaurants").find();
+  for await (const doc of cursor) {
+    restaurants.push(doc);
+  }
+  res.json(restaurants);
 });
 
 app.listen(port, () => {
