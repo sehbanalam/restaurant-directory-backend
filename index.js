@@ -14,7 +14,7 @@ MongoClient.connect(process.env.MONGODB_URI)
   });
 
 app.get("/", async (req, res) => {
-  const db = req.app.locals.db;
+  const db = await req.app.locals.db;
   let restaurants = [];
   let cursor = await db.collection("restaurants").find();
   for await (const doc of cursor) {
