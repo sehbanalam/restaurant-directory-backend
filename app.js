@@ -13,7 +13,7 @@ MongoClient.connect(process.env.MONGODB_URI)
     console.log(err);
   });
 
-app.get("/", async (req, res) => {
+app.get("/hello", async (req, res) => {
   const db = req.app.locals.db;
   let restaurants = [];
   let cursor = await db.collection("restaurants").find();
