@@ -14,13 +14,13 @@ MongoClient.connect(process.env.MONGODB_URI)
   });
 
 app.get("/", async (req, res) => {
-  const db = await req.app.locals.db;
-  let restaurants = [];
-  let cursor = await db.collection("restaurants").find();
-  for await (const doc of cursor) {
-    restaurants.push(doc);
-  }
-  res.send(restaurants);
+  // //const db = await req.app.locals.db;
+  // //let restaurants = [];
+  // //let cursor = await db.collection("restaurants").find();
+  // for await (const doc of cursor) {
+  //   restaurants.push(doc);
+  // }
+  res.json({ hello: "world" });
 });
 
 app.listen(port, () => {
