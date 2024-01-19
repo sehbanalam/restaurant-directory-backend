@@ -13,15 +13,14 @@ MongoClient.connect(process.env.MONGODB_URI)
     console.log(err);
   });
 
-app.get("/", async (req, res) => {
+app.get("/hello", async (req, res) => {
   const db = req.app.locals.db;
   let restaurants = [];
   let cursor = await db.collection("restaurants").find();
   for await (const doc of cursor) {
     restaurants.push(doc);
   }
-  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-  res.json(restaurants);
+  res.send(restaurants);
 });
 
 app.listen(port, () => {
