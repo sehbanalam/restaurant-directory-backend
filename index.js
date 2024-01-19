@@ -1,13 +1,12 @@
 import express from "express";
 import "dotenv/config";
-import { MongoClient, ServerApiVersion } from "mongodb";
 import db from "./dbConnect.js";
 
 const app = express();
 const port = 3000;
 
 app.get("/", async (req, res) => {
-  res.json({ hello: "world" });
+  res.json({ Restaurant: "Welcome To Restaurant API by SEHBAN ALAM" });
 });
 
 app.get("/getRestaurants", async (req, res) => {
