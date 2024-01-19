@@ -2,13 +2,12 @@
   "name": "restaurant-directory-backend",
   "version": "1.0.0",
   "description": "restaurant directory REST API",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "run": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "nodemon index.js"
   },
-  "author": "",
+  "author": "Sehban Alam",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
