@@ -1,9 +1,8 @@
 import express from "express";
 import "dotenv/config";
-import db from "./dbConnect.js";
+import db from "./utils/dbHelper.js";
 
 const app = express();
-const port = 3000;
 
 app.get("/", async (req, res) => {
   res.json({ Restaurant: "Welcome To Restaurant API by SEHBAN ALAM" });
@@ -16,10 +15,6 @@ app.get("/getRestaurants", async (req, res) => {
     restaurants.push(doc);
   }
   res.json(restaurants);
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
 });
 
 export default app;
