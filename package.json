@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "run": "nodemon server.js"
+    "run": "node server.js",
+    "run-local": "nodemon server.js"
   },
   "author": "Sehban Alam",
   "license": "ISC",
