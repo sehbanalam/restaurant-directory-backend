@@ -10,7 +10,7 @@ app.get("/", async (req, res) => {
   res.json({ Restaurant: "Welcome To Restaurant API by SEHBAN ALAM" });
 });
 
-// ATTACH ROUTES TO EXPRESS INSTANCE
+// ATTACH ROUTE TO EXPRESS INSTANCE
 app.use("/restaurant", restaurant_router);
 
 export default app;
